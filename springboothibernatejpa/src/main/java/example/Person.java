@@ -13,7 +13,9 @@ import java.util.Date;
 public class Person {
     @Id
     private long id;
-    private String emailAddress;  //column名称映射规则: java使用驼峰格式, 数据库使用下划线格式， userId将映射为user_id
+
+    //column名称映射规则: java使用驼峰格式, 数据库使用下划线格式， emailAddress将映射为email_address
+    private String emailAddress;
     private String lastname;
     private String firstname;
 }

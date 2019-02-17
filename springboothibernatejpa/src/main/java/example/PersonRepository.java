@@ -20,7 +20,6 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
     /** 像写sql语句一样, 写方法名. 如果参数太多, 写起来也挺累的 */
     List<Person> findByEmailAddressAndLastname(String emailAddress, String lastname);
-
     // Enables the distinct flag for the query
     List<Person> findDistinctPeopleByLastnameOrFirstname(String lastname, String firstname);
     List<Person> findPeopleDistinctByLastnameOrFirstname(String lastname, String firstname);
@@ -31,9 +30,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     // Enabling static ORDER BY for a query
     List<Person> findByLastnameOrderByFirstnameAsc(String lastname);
     List<Person> findByLastnameOrderByFirstnameDesc(String lastname);
-
     List<Person> findByIdGreaterThan(long id);
-
     //分页
     Page<Person> queryFirst10ByLastname(String lastname, Pageable pageable);
 
@@ -46,5 +43,4 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
     @Transactional
     @Query("update Person a set a.firstname=:firstname WHERE a.id=:id")
     int updateWithQuery(@Param("id") long id, @Param("firstname") String firstname);
-
 }
